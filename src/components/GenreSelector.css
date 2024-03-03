@@ -1,0 +1,71 @@
+.genreSelector {
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+
+    margin-top: 15px;
+}
+
+.selector-container-closed, .selector-container-opened {
+    display: flex;
+    background-color: rgb(61, 61, 61);
+    padding: 10px 15px;
+    width: 370px;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(255, 153, 0);
+    justify-content: center;
+    box-shadow: 0 0 10px 1px rgb(255, 153, 0);
+    border: 1px solid rgb(255, 153, 0);
+    justify-content: space-between;   
+    transition: 0.1s;
+}
+
+.selector-container-closed {
+    border-radius: 10px;
+}
+
+.selector-container-opened {
+    border-radius: 10px 10px 0 0;
+
+}
+
+.selector-container-closed:hover, .selector-container-opened:hover {
+    cursor: pointer;
+    background-color: rgb(71, 71, 71);
+    transition: 0.1s;
+}
+
+.selector-arrow-up {
+    transform: rotate(180deg);
+}
+
+.selector-arrow-down, .selector-arrow-up {
+    margin-top: 2px;
+    transition: 0.2s;
+}
+
+.genre-list {
+    background-color: rgb(61, 61, 61);
+    width: 370px;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    padding: 10px 0;
+    box-shadow: 0 0 10px 1px rgb(255, 153, 0);
+    border: 1px solid rgb(255, 153, 0);
+}
+
+.genre-element {
+    color: rgb(230, 224, 224);
+    width: 100%;
+    height: 30px;
+    padding: 5px;
+    text-align: center;
+}
+
+.genre-element:hover {
+    background-color: rgb(71, 71, 71);
+    cursor: pointer;
+    align-self: center;
+}

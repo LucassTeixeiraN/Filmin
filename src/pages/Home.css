@@ -1,0 +1,27 @@
+.Home {
+    height: 890px;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    gap: 15px;
+}
+
+h1, h2 {
+    color: white;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+a {
+    color:rgb(255, 153, 0);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 50px;
+}
