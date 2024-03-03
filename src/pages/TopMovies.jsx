@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 
-const Movie = () => {
+const Movies = () => {
 
     const [topMovies, setTopMovies] = useState([])
     

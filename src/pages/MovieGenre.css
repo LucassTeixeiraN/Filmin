@@ -1,0 +1,34 @@
+.content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.movie-container {
+    width: 15%;
+    height: 540px;
+    background-color: rgb(19, 19, 19);
+    color: rgb(255, 153, 0);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.information-container {
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    align-items: center;
+    padding: 0 0 10px 0;
+}
+
+
+.movie-container img{
+    width: 100%;
+    height: 90%;
+}
+
+/* color: rgb(255, 153, 0); amarelo*/ 
+/* rgb(61, 61, 61) * cinza/

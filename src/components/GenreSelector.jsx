@@ -4,32 +4,15 @@ import { useState } from "react";
 
 import './GenreSelector.css'
 
-
-
-const Options = ( listOpened, {aaa} ) => {
-
-    const [genreSlc, setGenreSlc] = useState('')
-
-    const genres = ['action','adventure','animation','biography','comedy','documentry','drama','family','fantasy','film-noir','history','horror','music','musical','mystery','romance','sci-fi','sport','thriller','war','western'];
-
-    const genreList = genres.map((genre) => <p key={genres.indexOf(genre)} className="genre-element" onClick={() => {setGenreSlc(genre); aaa(genre)}}>{genre}</p> )
-    
-    if(listOpened.listOpened === true) {
-     return <div className="genre-list">{genreList}</div> 
-    }
-}
-
-
 const GenreSelector = ({genreSelected}) => {
-    const [listOpened, setListOpened] = useState(true)
+    const [listOpened, setListOpened] = useState(false)
+    const [listSituation, setListSituation] = useState(<div></div>)
     const [selectorClassName, setSelectorClassName] = useState('selector-container-closed')
     const [selectorArrowClassName, setSelectorArrowClassName] = useState('selector-arrow-down')
 
-
-    const [data, setData] = useState('aa')
-    const aaa = (data) => {
-        setData(data)
-    }
+    const genres = ['action','adventure','animation','biography','comedy','documentry','drama','family','fantasy','film-noir','history','horror','music','musical','mystery','romance','sci-fi','sport','thriller','war','western'];
+    
+    const genreList = genres.map((genre) => <p key={genres.indexOf(genre)} className="genre-element" onClick={() => genreSelected(genre)}>{genre}</p> )
 
     return(
         <div className="genreSelector">
@@ -39,22 +22,20 @@ const GenreSelector = ({genreSelected}) => {
                     setListOpened(true)
                     setSelectorClassName('selector-container-opened')
                     setSelectorArrowClassName('selector-arrow-up')
-                    console.log(listOpened);
+                    setListSituation(<div className="genre-list">{genreList}</div>)
                 } else {
                     setListOpened(false)
                     setSelectorClassName('selector-container-closed')
                     setSelectorArrowClassName('selector-arrow-down')
-                    console.log(listOpened);
+                    setListSituation(<div></div>)
                 }
-                    console.log(data);
                 }}>
                 <p>Escolha um gênero de filme</p>
                 <IconContext.Provider value={{ color: "rgb(255, 153, 0)", className: `${selectorArrowClassName}`}}>
                     <AiOutlineDown />
                 </IconContext.Provider>
-                {/* <button onClick={() => genreSelected(data)}>oi</button> */}
             </button>
-            <Options listOpened={listOpened} aaa={aaa}/>
+            {listSituation}
         </div>
     )
 };

@@ -1,16 +1,14 @@
 import { useState, useEffect } from "react";
 
 import GenreSelector from "../components/GenreSelector";
+import './MovieGenre.css'
 
-const getMovieGenre = () => {
-
-}
-
-const Movie = () => {
+const Movies = ( genre ) => {
 
     const [movieGenre, setmovieGenre] = useState([])
     
-    const url = `https://moviesverse1.p.rapidapi.com/get-by-genre?genre=${genre}`;
+
+    const url = `https://moviesverse1.p.rapidapi.com/get-by-genre?genre=${genre.genre}`;
     const options = {
         method: 'GET',
         headers: {
@@ -18,13 +16,13 @@ const Movie = () => {
             'X-RapidAPI-Host': 'moviesverse1.p.rapidapi.com'
         }
     };
-    
+
     const MovieGenreApi = async() => {
 
         try {
             const response = await fetch(url, options);
             const result = await response.json();
-            console.log(result);
+            setmovieGenre(result.movies)
         } catch (error) {
             console.error(error);
         }
@@ -32,7 +30,17 @@ const Movie = () => {
         
         useEffect(() => {
             MovieGenreApi()
-        }, [])
+        }, [genre])
+
+
+        const movie = movieGenre.map((movie) => <div key={movieGenre.indexOf(movie)} className="movie-container" onMouseEnter={() => console.log('oi')}>
+            <div className="information-container">
+                <h3>{movie.title}</h3>
+                <p>{movie.imdbRating}</p>
+            </div>
+            <img src={movie.posterImage} alt="" />
+            </div>)
+        return movie
 }
 
 
@@ -40,17 +48,18 @@ const Movie = () => {
 
 const MovieGenre = () => {
 
-    const [data, setData] = useState('');
+    const [genre, setGenre] = useState('');
     
-    const genreSelected = (data) => {
-        setData(data)
+    const genreSelected = (genre) => {
+        setGenre(genre)
     }
     
     return(
         <>
             <GenreSelector genreSelected={genreSelected}/>
-            <h1>{data}</h1>
-            {/* <MovieGenreList /> */}
+            <div className="content">
+                <Movies genre={genre}/>
+            </div>
         </>
     )
 };
