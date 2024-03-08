@@ -5,6 +5,9 @@
     flex-wrap: wrap;
     gap: 20px;
     margin-top: 10px;
+    position: absolute;
+    top: 150px;
+    z-index: -1;
 }
 
 .top-movies-movie-container {

@@ -5,9 +5,9 @@ const Home = () => {
     return(
         <div className='Home'>
             <h1>Você quer conhecer</h1>
-            <Link to={'/topMovies'}>Filmes mais bem avaliados</Link>
+            <Link to={'/movieGenre'} className='homePaths'>Filmes por gênero</Link>
             <h2>ou</h2>
-            <Link to={'/movieGenre'}>Filmes por gênero?</Link>
+            <Link to={'/topMovies'} className='homePaths'>Filmes mais bem avaliados?</Link>
         </div>
     )
 };

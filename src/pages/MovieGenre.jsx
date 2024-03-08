@@ -16,6 +16,17 @@ const Movies = ( genre ) => {
         }
     };
 
+
+    const Rating = (movie) => {
+
+        if(movie.imdbRating.length > 0) 
+        {return movie.imdbRating.split('')[0]+movie.imdbRating.split('')[1]+movie.imdbRating.split('')[2]}
+        else {
+            return '??'
+        } 
+        
+    }
+
     const MovieGenreApi = async() => {
 
         try {
@@ -35,7 +46,7 @@ const Movies = ( genre ) => {
         const movie = movieGenre.map((movie) => <div key={movieGenre.indexOf(movie)} className="movie-container">
             <div className="information-container">
                 <h3>{movie.title}</h3>
-                <p>{movie.imdbRating.split('')[0]+movie.imdbRating.split('')[1]+movie.imdbRating.split('')[2]}</p>
+                <p>{Rating(movie)}</p>
             </div>
             <img src={movie.posterImage} alt="" />
             </div>)
@@ -56,7 +67,7 @@ const MovieGenre = () => {
     return(
         <>
             <GenreSelector genreSelected={genreSelected}/>
-            <div className="content">
+            <div className="genre-content">
                 <Movies genre={genre}/>
             </div>
         </>

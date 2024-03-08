@@ -1,6 +1,16 @@
 import { useState, useEffect } from "react";
 import './TopMovies.css'
 
+const Rating = (movie) => {
+
+    if(movie.imdbRating.length > 0) 
+    {return movie.imdbRating.split('')[0]+movie.imdbRating.split('')[1]+movie.imdbRating.split('')[2]}
+    else {
+        return '??'
+    } 
+    
+}
+
 const Movie = () => {
 
     const [topMovies, setTopMovies] = useState([])
@@ -31,7 +41,7 @@ const Movie = () => {
     const movie = topMovies.map((el) => <div key={topMovies.indexOf(el)} className="top-movies-movie-container">
         <div className="top-movies-information-container">
             <h3>{el.title}</h3>
-            <p>{el.rating.split('')[0]+el.rating.split('')[1]+el.rating.split('')[2]}</p>
+            <p>{Rating(movie)}</p>
         </div>
         <img src={el.image} alt="" />
         </div>)
