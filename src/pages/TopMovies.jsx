@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
+import './TopMovies.css'
 
-
-const Movies = () => {
+const Movie = () => {
 
     const [topMovies, setTopMovies] = useState([])
     
@@ -26,15 +26,14 @@ const Movies = () => {
     
     useEffect(() => {
         TopMoviesApi()
-        console.log(topMovies);
     }, [])
     
-    const movie = topMovies.map((el) => <div key={topMovies.indexOf(el)}>
-        <h1 className="movie-title">{el.title}</h1>
+    const movie = topMovies.map((el) => <div key={topMovies.indexOf(el)} className="top-movies-movie-container">
+        <div className="top-movies-information-container">
+            <h3>{el.title}</h3>
+            <p>{el.rating.split('')[0]+el.rating.split('')[1]+el.rating.split('')[2]}</p>
+        </div>
         <img src={el.image} alt="" />
-        <p>{el.year}</p>
-        <p>{el.timeline}</p>
-        <p>{el.rating}</p>
         </div>)
     return movie
 
@@ -45,9 +44,9 @@ const TopMovies = () => {
 
 
     return(
-        <>
+        <div className="content">
             <Movie />
-        </>
+        </div>
     )
 };
 
