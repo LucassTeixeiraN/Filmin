@@ -6,7 +6,6 @@ import './MovieGenre.css'
 const Movies = ( genre ) => {
 
     const [movieGenre, setmovieGenre] = useState([])
-    
 
     const url = `https://moviesverse1.p.rapidapi.com/get-by-genre?genre=${genre.genre}`;
     const options = {
@@ -33,27 +32,27 @@ const Movies = ( genre ) => {
         }, [genre])
 
 
-        const movie = movieGenre.map((movie) => <div key={movieGenre.indexOf(movie)} className="movie-container" onMouseEnter={() => console.log('oi')}>
+        const movie = movieGenre.map((movie) => <div key={movieGenre.indexOf(movie)} className="movie-container">
             <div className="information-container">
                 <h3>{movie.title}</h3>
-                <p>{movie.imdbRating}</p>
+                <p>{movie.imdbRating.split('')[0]+movie.imdbRating.split('')[1]+movie.imdbRating.split('')[2]}</p>
             </div>
             <img src={movie.posterImage} alt="" />
             </div>)
+
+
         return movie
+
 }
-
-
-
 
 const MovieGenre = () => {
 
     const [genre, setGenre] = useState('');
-    
+
     const genreSelected = (genre) => {
         setGenre(genre)
     }
-    
+
     return(
         <>
             <GenreSelector genreSelected={genreSelected}/>
