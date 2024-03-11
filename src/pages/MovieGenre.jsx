@@ -3,9 +3,18 @@ import { useState, useEffect } from "react";
 import GenreSelector from "../components/GenreSelector";
 import './MovieGenre.css'
 
+const Loading = () => {
+    return (
+        <div className="loading">
+            <h1>Carregando...</h1>
+        </div>
+    )
+}
+
 const Movies = ( genre ) => {
 
     const [movieGenre, setmovieGenre] = useState([])
+    const [loadingRemove, setLoadingRemove] = useState(false)
 
     const url = `https://moviesverse1.p.rapidapi.com/get-by-genre?genre=${genre.genre}`;
     const options = {
@@ -33,6 +42,7 @@ const Movies = ( genre ) => {
             const response = await fetch(url, options);
             const result = await response.json();
             setmovieGenre(result.movies)
+            setLoadingRemove(true)
         } catch (error) {
             console.error(error);
         }
@@ -52,7 +62,12 @@ const Movies = ( genre ) => {
             </div>)
 
 
-        return movie
+        return (
+            <>
+                {movie}
+                {!loadingRemove && <Loading/>}
+            </>
+)
 
 }
 

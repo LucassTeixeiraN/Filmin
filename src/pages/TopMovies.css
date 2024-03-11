@@ -53,6 +53,19 @@
     border-radius: 0 0 10px 10px;
 }
 
+.loading {
+    width: 50vw;
+    height: calc(50vh + 100px);
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading h1 {
+    color: rgb(255, 153, 0);
+    font-size: 50px;
+}
+
 
 @media (max-width: 1024px) {
     .top-movies-movie-container{

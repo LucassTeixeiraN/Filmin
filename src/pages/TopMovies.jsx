@@ -11,9 +11,18 @@ const Rating = (movie) => {
     
 }
 
+const Loading = () => {
+    return (
+        <div className="loading">
+            <h1>Carregando...</h1>
+        </div>
+    )
+}
+
 const Movie = () => {
 
     const [topMovies, setTopMovies] = useState([])
+    const [loadingRemove, setLoadingRemove] = useState(false)
     
     const url = 'https://moviesverse1.p.rapidapi.com/top-250-movies';
     const options = {
@@ -29,6 +38,7 @@ const Movie = () => {
             const response = await fetch(url, options);
             const result = await response.json();
             setTopMovies(result.movies)
+            setLoadingRemove(true)
         } catch (error) {
             console.error(error);
         }
@@ -45,7 +55,13 @@ const Movie = () => {
         </div>
         <img src={el.image} alt="" />
         </div>)
-    return movie
+
+    return (
+        <>
+            {movie}
+            {!loadingRemove && <Loading/>}
+        </>
+    )
 
 }
 
