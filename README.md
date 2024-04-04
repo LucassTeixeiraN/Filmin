@@ -1,8 +1,9 @@
-# React + Vite
+# Filmin
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+!(./public/readme-imgs/1.png)
 
-Currently, two official plugins are available:
+## 🎬sobre
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+O Filmin é uma aplicação que oferece recomendações de filmes aos usuários, permitindo escolher entre as opções mais bem avaliadas ou por gênero.
+
+[Link](https://filmin.netlify.app/) do projeto
